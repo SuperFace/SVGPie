@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+<body>
+	<figure id="selft-pie1" style="position:relative;width:200px;height:200px;">
+		<div class="percentage" style="position:absolute;top:50%;left:120%;font-size: 2rem;color:#000;-webkit-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">0%</div>
+	</figure>
+	<figure id="selft-pie2" style="position:relative;width:200px;height:200px;">
+		<div class="percentage" style="position:absolute;top:50%;left:120%;font-size: 2rem;color:#000;-webkit-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">0%</div>
+	</figure>
+	<script type="text/javascript" src="//storagecdn.xuetangx.com/public_assets/xuetangx/js/jquery.min.js"></script>
+	<script type="text/javascript" src="SVGPie.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+	
+			var rand = function() {
+				return Math.floor((Math.random() * 100) + 1)
+			}
+			
+			new SVGPie($("#selft-pie1"), $("#selft-pie1").find(".percentage"), {
+				easing: 'easeOutCubic',
+		        dimension: 200,
+		        percentage: 50,
+		        duration: 2000,
+				percentage: rand(),
+				drawType: "stroke",
+				draw: {"circle1": {"strokeColor": "#3498DB", "strokeWidth": "5px"}, "circle2": {"strokeColor": "#3498DB"}},
+				onStart: function() {},
+		        onComplete: function() {}
+			});
+			new SVGPie($("#selft-pie2"), $("#selft-pie2").find(".percentage"), {
+				easing: 'easeOutCubic',
+		        dimension: 200,
+		        percentage: 50,
+		        duration: 2000,
+				percentage: rand(),
+				drawType: "fill",
+				draw: {"circle1": {"fillColor": "#1ABC9C"}, "circle2": {"strokeColor": "#3498DB"}},
+				onStart: function() {},
+		        onComplete: function() {}
+			});
+			
+		});
+	</script>
+</body>
+</html>
